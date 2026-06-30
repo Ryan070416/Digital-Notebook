@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"
+         metadata-complete="true"> 
+    <servlet>
+        <servlet-name>MistakeServlet</servlet-name>
+        <servlet-class>com.notebook.MistakeServlet</servlet-class>
+        <multipart-config>
+            <location>/tmp</location> <max-file-size>10485760</max-file-size> <max-request-size>10485760</max-request-size>
+            <file-size-threshold>10485760</file-size-threshold> </multipart-config>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MistakeServlet</servlet-name>
+        <url-pattern>/api/mistakes</url-pattern>
+    </servlet-mapping>
+
+</web-app>

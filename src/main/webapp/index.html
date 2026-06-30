@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的數位錯題本</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="navbar-brand mb-0 h1">📝 數位錯題本</span>
+            
+            <div id="authSection">
+                <button id="loginBtn" class="btn btn-outline-light btn-sm">Google 登入</button>
+                <span id="userInfo" class="text-light me-3 fw-bold" style="display: none;"></span>
+                <button id="logoutBtn" class="btn btn-danger btn-sm" style="display: none;">登出</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">新增錯題</h5>
+                        <form id="mistakeForm">
+                            <div class="mb-3">
+                                <label class="form-label">上傳題目圖片</label>
+                                <input type="file" class="form-control" name="image" id="image" accept="image/*" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">標題 / 考點</label>
+                                <input type="text" class="form-control" name="title" id="title" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">AI 解析 / 筆記</label>
+                                <textarea class="form-control" name="analysis" id="analysis" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">標籤 (用逗號分隔)</label>
+                                <input type="text" class="form-control" name="tags" id="tags" placeholder="例如：微積分,期中考">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">上傳至雲端</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="mb-0">我的錯題牆</h3>
+                    
+                    <div class="input-group" style="width: 250px;">
+                        <span class="input-group-text bg-white"><i class="fa-solid fa-magnifying-glass">🔍</i></span>
+                        <input type="text" id="searchInput" class="form-control border-start-0" placeholder="搜尋關鍵字... (按 Enter)">
+                    </div>
+                </div>
+                <div class="row" id="mistakeWall">
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">查看 / 編輯錯題</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <input type="hidden" name="id" id="edit-id">
+                        <input type="hidden" name="oldImageUrl" id="edit-oldImageUrl">
+
+                        <div class="mb-3 text-center">
+                            <img id="edit-currentImage" src="" alt="錯題圖片" class="img-fluid rounded shadow-sm" style="max-height: 400px; display: none;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-primary fw-bold">重新上傳圖片 (若不更改請留空)</label>
+                            <input type="file" class="form-control" name="image" accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">標題 / 考點</label>
+                            <input type="text" class="form-control" name="title" id="edit-title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">AI 解析 / 筆記</label>
+                            <textarea class="form-control" name="analysis" id="edit-analysis" rows="6" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">標籤</label>
+                            <input type="text" class="form-control" name="tags" id="edit-tags">
+                        </div>
+                        <div class="text-end mt-4">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-success">儲存修改</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$']], // 設定單一個 $ 為行內公式
+          displayMath: [['$$', '$$']] // 設定雙 $$ 為獨立段落大公式
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

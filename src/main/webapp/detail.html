@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>錯題詳情與編輯</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">📝 錯題詳情與編輯</span>
+        </div>
+    </nav>
+
+    <div class="container pb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm p-4">
+                    <form id="detailForm">
+                        <input type="hidden" name="id" id="detail-id">
+                        <input type="hidden" name="oldImageUrl" id="detail-oldImageUrl">
+
+                        <div class="text-center mb-4">
+                            <img id="detail-image" src="" class="img-fluid rounded shadow" style="max-height: 500px; display: none;" alt="錯題圖片">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-primary fw-bold">重新上傳圖片 (若不更改請留空)</label>
+                            <input type="file" class="form-control" name="image" accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">標題 / 考點</label>
+                            <input type="text" class="form-control form-control-lg" name="title" id="detail-title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">AI 解析 / 筆記</label>
+                            <textarea class="form-control" name="analysis" id="detail-analysis" rows="10" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">標籤 (用逗號分隔)</label>
+                            <input type="text" class="form-control" name="tags" id="detail-tags">
+                        </div>
+                        
+                        <hr class="my-4">
+                        <div class="text-end">
+                            <button type="button" class="btn btn-secondary me-2" onclick="window.close()">關閉分頁</button>
+                            <button type="submit" class="btn btn-success px-4">儲存修改</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$']], // 設定單一個 $ 為行內公式
+          displayMath: [['$$', '$$']] // 設定雙 $$ 為獨立段落大公式
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="detail.js"></script>
+</body>
+</html>
