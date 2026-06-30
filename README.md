@@ -1,10 +1,10 @@
-# 📝 Digital Notebook (數位錯題本)
+#  Digital Notebook (數位錯題本)
 
 A secure, cloud-based full-stack web application designed for students to track, manage, and review their academic mistakes. Built with Java, Google Cloud Platform (GCP), and Firebase, this application provides a personalized sandbox for every user to seamlessly store images, academic notes, and complex mathematical formulas.
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 *  **Private User Sandboxes:** Integrated with **Firebase Authentication (Google Sign-In)**. Every user gets a 100% private and isolated database environment based on their unique UID.
 *  **Advanced Math Support:** Native support for LaTeX syntax (via **MathJax**). Users can easily type fractions, integrals, and Greek letters in their notes, which are beautifully rendered on the cards.
@@ -34,7 +34,7 @@ A secure, cloud-based full-stack web application designed for students to track,
 
 ---
 
-## 🏗️ Project Architecture
+##  Project Architecture
 
 The application follows a classic 3-tier architecture:
 
